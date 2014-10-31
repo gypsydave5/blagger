@@ -11,7 +11,8 @@ DataMapper.auto_upgrade!
 
 class Blagger < Sinatra::Base
   get '/' do
-    'Hello Blagger!'
+    @posts = Post.all
+    erb :index
   end
 
   run! if app_file == $0
